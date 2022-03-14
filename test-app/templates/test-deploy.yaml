@@ -19,8 +19,8 @@ spec:
         app: test-deploy
     spec:
       containers:
-      - image: redis
-        name: redis
+      - image: nginx
+        name: nginx
         resources: {}
         volumeMounts:
          - name: vol
