@@ -51,6 +51,7 @@ helm install example-app example-app --namespace=example-app --create-namespace
 
 You should see something like this. Assumes kubectl has access to a cluster
 
+```
 nigel@Azure:~/helm-training$ helm install example-app example-app --namespace=example-app --create-namespace
 NAME: example-app
 LAST DEPLOYED: Mon Mar 14 16:22:55 2022
@@ -63,6 +64,7 @@ NOTES:
   export CONTAINER_PORT=$(kubectl get pod --namespace example-app $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
   echo "Visit http://127.0.0.1:8080 to use your application"
   kubectl --namespace example-app port-forward $POD_NAME 8080:$CONTAINER_PORT
+```
 
 ```
 kubectl get all --namespace=example-app
@@ -70,6 +72,7 @@ kubectl get all --namespace=example-app
 
 5. You should now see something loke this:
 
+```
 nigel@Azure:~/helm-training$ kubectl get all --namespace=example-app
 NAME                               READY   STATUS    RESTARTS   AGE
 pod/example-app-64db6ff57b-72h4q   1/1     Running   0          73s
@@ -82,6 +85,7 @@ deployment.apps/example-app   1/1     1            1           73s
 
 NAME                                     DESIRED   CURRENT   READY   AGE
 replicaset.apps/example-app-64db6ff57b   1         1         1       73s
+```
 
 
 
