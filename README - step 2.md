@@ -23,7 +23,7 @@ Unpacking objects: 100% (45/45), done.
 nigel@Azure:~/helm-training$ 
 ```
 
-##If you have created in the wrong folder you can use: rm -r learn-helm-to-deploy-to-AKS -f
+## If you have created in the wrong folder you can use: rm -r learn-helm-to-deploy-to-AKS -f
 
 6. From AZ CLI change directory into downloaded cloned repo, then list files.
 
@@ -31,7 +31,7 @@ nigel@Azure:~/helm-training$
 cd ~/helm-training/learn-helm-to-deploy-to-AKS 
 ```
 
-7. From the AZ CLI Editor review the files in the templates directory?
+7. From the AZ CLI Editor, review the files in the directory: helm-training/learn-helm-to-deploy-to-AKS/templates
 
 8. To see and test how Helm merges these manifest files within the templates folder with values from the (empty) values file - run: Helm template command and review the trace output.
 ```
