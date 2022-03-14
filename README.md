@@ -5,26 +5,27 @@ Developers, Solution Architects
 
 ## Learn helm to deploy to AKS - Step 1 of 3
 
-### The purpose of this training course is to understand how Helm can deploy Kubernetes manifest files as a package
+### The purpose of this training course is to understand how Helm can help deploy Kubernetes manifest files as a package.
+
+https://helm.sh/docs/topics/charts
 
 ## Prerequisites
 
 1. Request access rights to your Kubernetes cluster (K8s) from your trainer
-2. AZ CLI
 
-===================
+2. Run the AZ CLI
 
-3. Create directory in Azure CLI
+3. Create a new directory in Azure CLI:
 
 ```
 mkdir helm-training && cd helm-training
 ```
-4. Check that Helm is installed and working 
+4. Check that Helm is installed and working:
 ```
 helm version
 ```
 
-5. Let's now create a Helm app and veiw the files created
+5. Let's now create a Helm chart and view the files created:
 
 ```
 helm create example-app
@@ -33,23 +34,21 @@ helm create example-app
 ls example-app
 ```
 
-3. Open editor and review files. Note how the typical Kubernetes yaml files exist in the templates directory but have variables instead of hardcoded values.
+6. Open the AZ CLI editor and review the files. Note how the typical Kubernetes yaml files exist in the templates directory but have variables instead of hardcoded values.
 
-https://helm.sh/docs/topics/charts
+7. What does nindent 4 mean?
 
-4. What does nindent 4 mean?
-
-5. To see and test how Helm merges the manifest files within the templates folder with  values from the values file - run: Helm template and review the trace output.
+8. To see and test how Helm merges the manifest files within the templates folder with  values from the values file - run: Helm template and review the trace output.
 ```
 helm template example-app example-app --namespace=example-app --create-namespace
 ```
 
-4. Now let's deploy this application to our Kubernetes cluster. 
+9. Now let's deploy this application to our Kubernetes cluster. 
 ```
 helm install example-app example-app --namespace=example-app --create-namespace
 ```
 
-You should see something like this. Assumes kubectl has access to a cluster
+10. You should see something like this. Assumes kubectl has access to a cluster
 
 ```
 nigel@Azure:~/helm-training$ helm install example-app example-app --namespace=example-app --create-namespace
@@ -66,11 +65,13 @@ NOTES:
   kubectl --namespace example-app port-forward $POD_NAME 8080:$CONTAINER_PORT
 ```
 
+11. View the objects using kubectl
+
 ```
 kubectl get all --namespace=example-app
 ```
 
-5. You should now see something loke this:
+12. You should now see something like this:
 
 ```
 nigel@Azure:~/helm-training$ kubectl get all --namespace=example-app
