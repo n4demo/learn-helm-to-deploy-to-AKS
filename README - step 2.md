@@ -37,4 +37,4 @@ cd ~/helm-training/learn-helm-to-deploy-to-AKS
 ```
 helm template test-app test-app --namespace=test-app --create-namespace
 ```
-
+9. Now we should replace hardcoded values in the manifest files with variable names that match values in the values file.
