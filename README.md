@@ -7,6 +7,18 @@ Developers, Solution Architects
 
 ### The purpose of this training course is to understand how Helm can help deploy Kubernetes manifest files as a package.
 
+
+### Kubectl Cheat sheet https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+### helpful commands:
+#### list files: *ls*
+#### view file: *cat my-file.yaml*
+#### Show K8s objects: *kubectl get all --namespace=my-namespace*
+
+## All commands can be executed by copying to the AZ CLI: >_
+
+ ![The cloud shell icon is highlighted on the menu bar.](media/b4-image35.png "Cloud Shell")
+
 https://helm.sh/docs/topics/charts
 
 ## Prerequisites
