@@ -19,7 +19,16 @@ spec:
         app: test-deploy
     spec:
       containers:
-      - image: nginx
-        name: nginx
+      - image: redis
+        name: redis
         resources: {}
+        volumeMounts:
+         - name: vol
+           mountPath: "/etc/cm"
+           readOnly: true
+      volumes:
+       - name: vol
+         configMap:
+         name: test-cm
+
 status: {}

@@ -23,15 +23,16 @@ Unpacking objects: 100% (45/45), done.
 nigel@Azure:~/helm-training$ 
 ```
 
-6. Open the AZ CLI editor and review the files in the templates directory.
+6. From AZ CLI change directory into downloaded cloned repo, then list files.
 
 ```
+cd ~/helm-training/learn-helm-to-deploy-to-AKS 
 ```
 
-7. What does nindent 4 mean?
+7. From the AZ CLI Editor review the files in the templates directory?
 
-8. To see and test how Helm merges theses manifest files within the templates folder with  values from the empty values file - run: Helm template and review the trace output.
+8. To see and test how Helm merges these manifest files within the templates folder with values from the (empty) values file - run: Helm template command and review the trace output.
 ```
-helm template example-app example-app --namespace=example-app --create-namespace
+helm template test-app test-app --namespace=test-app --create-namespace
 ```
 
