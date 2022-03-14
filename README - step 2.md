@@ -23,6 +23,8 @@ Unpacking objects: 100% (45/45), done.
 nigel@Azure:~/helm-training$ 
 ```
 
+##If you have created in the wrong folder you can use: rm -r learn-helm-to-deploy-to-AKS -f
+
 6. From AZ CLI change directory into downloaded cloned repo, then list files.
 
 ```
