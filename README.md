@@ -46,6 +46,10 @@ helm version
 helm create example-app
 ```
 
+```
+ls example-app -R
+```
+
 ### You should see something like this
 ```
 example-app/
@@ -57,21 +61,21 @@ example-app/
     └── tests/    # The test files
 ```
 
-```
-ls example-app
-```
-
 6. Open the AZ CLI Editor and review the files. Note how typical Kubernetes yaml files exist in the templates directory but have variables instead of hardcoded values.
 
 7. What does nindent 4 mean?
 
-8. To see and test how Helm merges the manifest files within the templates folder with  values from the values file by running: helm template [NAME] [CHART] [flags] and review the trace output.
+8. To see and test how Helm merges the manifest files within the templates folder with values from the values file. Run: helm template [NAME] [CHART] [flags] and review the trace output.
 
 ```
 helm template my-example-app example-app --namespace=example-app --create-namespace
 ```
 
 9. Now let's deploy this application to our Kubernetes cluster: helm install [NAME] [CHART] [flags]. 
+
+```
+clear
+```
 
 ```
 helm install my-example-app example-app --namespace=example-app --create-namespace
@@ -127,6 +131,10 @@ replicaset.apps/example-app-64db6ff57b   1         1         1       73s
 ```
 
 15. When ready, delete the objects from AKS
+
+```
+helm uninstall my-example-app --namespace=example-app
+```
 
 ```
 kubectl delete ns example-app
