@@ -136,3 +136,9 @@ helm list
 ```
 
 ## Congratulations!! You now know how to deploy different versions, with multiple instances across different Kubernetes namespaces of a simple nginx application. 
+
+## Finally, clear out you objects in AKS by deleting the namespaces holding the objects
+
+```
+k delete ns my-namespace
+```
