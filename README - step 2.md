@@ -142,3 +142,8 @@ helm list
 ```
 k delete ns my-namespace
 ```
+
+```
+cd ~
+rm -r ~/helm-training -f
+```
