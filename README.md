@@ -92,13 +92,20 @@ NOTES:
 
 11. Paste the return commands into the AZ CLI
 
-12. View the objects using kubectl
+
+12. List the helm deployments
+
+```
+helm list
+```
+
+13. View the objects using kubectl
 
 ```
 kubectl get all --namespace=example-app
 ```
 
-13. You should now see something like this:
+14. You should now see something like this:
 
 ```
 nigel@Azure:~/helm-training$ kubectl get all --namespace=example-app
@@ -115,7 +122,7 @@ NAME                                     DESIRED   CURRENT   READY   AGE
 replicaset.apps/example-app-64db6ff57b   1         1         1       73s
 ```
 
-14. When ready, delete the objects from AKS
+15. When ready, delete the objects from AKS
 
 ```
 kubectl delete ns example-app

@@ -10,6 +10,7 @@ pwd
 ```
 git clone https://github.com/n4demo/learn-helm-to-deploy-to-AKS
 ```
+
 3. You should see this:
 
 ```
@@ -47,6 +48,30 @@ helm template test-app test-app --namespace=test-app --create-namespace
 helm install test-app test-app --namespace=test --create-namespace
 ```
 
+```
+NAME: test-app
+LAST DEPLOYED: Tue Mar 15 12:29:03 2022
+NAMESPACE: test
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+```
 
-9. Now we should replace hardcoded values in the manifest files with variable names that match values in the values file.
+```
+helm list --all
+```
+
+9. Now we should replace hardcoded values in the manifest files with variable names that match values in the values file. Open the values.yaml file and add the code below:
+
+```
+deployment:
+ image: "nginx"
+ tag: "1.21.6"
+```
+
+10. Open the test-deploy.yaml and replace the image with:
+
+```
+image: {{ .Values.deployment.image }}:{{.Values.deployment.tag }}
+```
 
