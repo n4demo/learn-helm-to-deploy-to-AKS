@@ -41,17 +41,17 @@ ls test-app
 6. To see and test how Helm merges these manifest files within the templates folder with values from the (empty) values file - run: helm template [NAME] [CHART] [flags] and review the trace output. Note this will not deploy anything.
 
 ```
-helm template test-app test-app --namespace=test-app --create-namespace
+helm template my-test-app test-app --namespace=test-app --create-namespace
 ```
 
 7. Now deploy the application: helm install [NAME] [CHART] [flags]
 
 ```
-helm install test-app test-app --namespace=test --create-namespace
+helm install my-test-app test-app --namespace=test --create-namespace
 ```
 
 ```
-NAME: test-app
+NAME: my-test-app
 LAST DEPLOYED: Tue Mar 15 12:29:03 2022
 NAMESPACE: test
 STATUS: deployed
@@ -80,12 +80,12 @@ image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag }}
 10. Upgrade the release 
 
 ```
-helm upgrade test-app test-app --namespace=test --values ./test-app/values.yaml
+helm upgrade my-test-app test-app --namespace=test --values ./test-app/values.yaml
 ```
 
 ### You should receive a response similar to the below
 
-Release "test-app" has been upgraded. Happy Helming!
+Release "my-test-app" has been upgraded. Happy Helming!
 NAME: test-app
 LAST DEPLOYED: Tue Mar 15 14:01:21 2022
 NAMESPACE: test
@@ -99,10 +99,10 @@ helm list --all
 
 11. Set to an older image from the command prompt
 ```
-helm upgrade test-app test-app --namespace=test --set deployment.tag=1.8.1
+helm upgrade my-test-app test-app --namespace=test --set deployment.tag=1.8.1
 ```
 
-12. To make our chart more generic, let's replace all refs to test in the name of the object with a Helm value expression and value . Additionally set a Helm value for the namespace. Eg for test-cm.yaml we can edit as below:
+12. To make our chart more generic, let's replace all refs to test in the name of the object with a Helm value expression and value. Additionally set a Helm value for the namespace. Eg for test-cm.yaml we can edit as below:
 
 ```
 apiVersion: v1
@@ -114,21 +114,21 @@ data:
   name: "test"
   ```
 
-13.  Rename values.yaml file to dev.yaml and add the code below. Note :
+13.  Rename values.yaml file to dev-values.yaml and add the code below. Note :
 
 ```
 name: dev
 namespace: dev
 ```
 
-14. Now deploy a copy of the app into the Dev namespace with names that reflect it is being used for dev
+14. Now deploy a copy of the app into the Dev namespace with names that reflect that it is being used for dev
 ```
-helm install dev-app test-app --namespace=dev --values ./test-app/dev.yaml
+helm install dev-app test-app --namespace=dev --values ./test-app/dev-values.yaml
 ```
 
-15. Finally, create a copy of dev.yaml as uat.yaml and update the values accordingly and deploy a UAT version
+15. Finally, create a copy of dev-values.yaml as uat-values.yaml and update the values accordingly and deploy a UAT version
 ```
-helm upgrade uat-app test-app --namespace=uat --values ./test-app/uat.yaml
+helm upgrade uat-app test-app --namespace=uat --values ./test-app/uat-values.yaml
 ```
 
 ```
