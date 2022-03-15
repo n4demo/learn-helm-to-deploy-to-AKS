@@ -1,17 +1,17 @@
 - Author Nigel Wardle. Node4
 
-1. Confirm your AZ CLI working directory is set to helm-training 
+1. Confirm your AZ CLI current working directory is set to 'helm-training' 
 ```
 pwd
 ```
 
-2. From the AZ CLI clone the helm training repository into your AZ CLI
+2. From the AZ CLI, from GitHub, clone the Helm training repository into your AZ CLI
 
 ```
 git clone https://github.com/n4demo/learn-helm-to-deploy-to-AKS
 ```
 
-3. You should see this:
+3. You should see something like this:
 
 ```
 nigel@Azure:~/helm-training$ git clone https://github.com/n4demo/learn-helm-to-deploy-to-AKS

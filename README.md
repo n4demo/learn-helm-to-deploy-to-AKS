@@ -10,6 +10,8 @@ Developers, Solution Architects
 
 ### Kubectl Cheat sheet https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
+### Helm docs https://helm.sh/docs/topics/charts
+
 ### helpful commands:
 #### list files: *ls*
 #### view file: *cat my-file.yaml*
@@ -19,7 +21,7 @@ Developers, Solution Architects
 
  ![The cloud shell icon is highlighted on the menu bar.](media/b4-image35.png "Cloud Shell")
 
-https://helm.sh/docs/topics/charts
+
 
 ## Prerequisites
 
@@ -44,6 +46,7 @@ helm version
 helm create example-app
 ```
 
+### You should see something like this
 ```
 example-app/
 ├── .helmignore   # Contains patterns to ignore when packaging Helm charts.
@@ -58,26 +61,27 @@ example-app/
 ls example-app
 ```
 
-6. Open the AZ CLI editor and review the files. Note how the typical Kubernetes yaml files exist in the templates directory but have variables instead of hardcoded values.
+6. Open the AZ CLI Editor and review the files. Note how typical Kubernetes yaml files exist in the templates directory but have variables instead of hardcoded values.
 
 7. What does nindent 4 mean?
 
-8. To see and test how Helm merges the manifest files within the templates folder with  values from the values file - run: Helm template and review the trace output.
+8. To see and test how Helm merges the manifest files within the templates folder with  values from the values file by running: helm template [NAME] [CHART] [flags] and review the trace output.
+
 ```
-helm template example-app example-app --namespace=example-app --create-namespace
+helm template my-example-app example-app --namespace=example-app --create-namespace
 ```
 
 9. Now let's deploy this application to our Kubernetes cluster: helm install [NAME] [CHART] [flags]. 
 
 ```
-helm install example-app example-app --namespace=example-app --create-namespace
+helm install my-example-app example-app --namespace=example-app --create-namespace
 ```
 
 10. You should see something like this. Assumes kubectl has access to a cluster
 
 ```
 nigel@Azure:~/helm-training$ helm install example-app example-app --namespace=example-app --create-namespace
-NAME: example-app
+NAME: my-example-app
 LAST DEPLOYED: Mon Mar 14 16:22:55 2022
 NAMESPACE: example-app
 STATUS: deployed
