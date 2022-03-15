@@ -135,4 +135,4 @@ helm upgrade uat-app test-app --namespace=uat --values ./test-app/uat-values.yam
 helm list
 ```
 
-## Congratulations!! You now know how to deploy multiple instances, different versions and across different Kubernetes namespaces of a simple nginx application. 
+## Congratulations!! You now know how to deploy different versions, with multiple instances across different Kubernetes namespaces of a simple nginx application. 
