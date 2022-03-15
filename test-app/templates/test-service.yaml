@@ -3,7 +3,7 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: test-deploy
+    app: test-service
   name: test-loadbalancer
   namespace: test
 spec:

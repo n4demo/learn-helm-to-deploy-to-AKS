@@ -26,23 +26,25 @@ nigel@Azure:~/helm-training$
 
 ## If you have created in the wrong folder you can use: rm -r learn-helm-to-deploy-to-AKS -f
 
-6. From AZ CLI change directory into the downloaded cloned repo, then list files.
+4. From AZ CLI change directory into the downloaded cloned repo, then list files.
 
 ```
 cd ~/helm-training/learn-helm-to-deploy-to-AKS
+```
 
+```
 ls test-app
 ```
 
-7. From the AZ CLI Editor, review the files in the templates directory
+5. From the AZ CLI Editor, review the files in the templates directory
 
-8. To see and test how Helm merges these manifest files within the templates folder with values from the (empty) values file - run: helm template [NAME] [CHART] [flags] and review the trace output. Note this will not deploy anything.
+6. To see and test how Helm merges these manifest files within the templates folder with values from the (empty) values file - run: helm template [NAME] [CHART] [flags] and review the trace output. Note this will not deploy anything.
 
 ```
 helm template test-app test-app --namespace=test-app --create-namespace
 ```
 
-9. Now deploy the application: helm install [NAME] [CHART] [flags]
+7. Now deploy the application: helm install [NAME] [CHART] [flags]
 
 ```
 helm install test-app test-app --namespace=test --create-namespace
@@ -61,7 +63,7 @@ TEST SUITE: None
 helm list --all
 ```
 
-9. Now we should replace hardcoded values in the manifest files with variable names that match values in the values file. Open the values.yaml file and add the code below:
+8. Now we should replace hardcoded values in the manifest files with variable names that match values in the values file. Open the values.yaml file and add the code below:
 
 ```
 deployment:
@@ -69,9 +71,64 @@ deployment:
  tag: "1.21.6"
 ```
 
-10. Open the test-deploy.yaml and replace the image with:
+9. Open the test-deploy.yaml and replace the image with:
 
 ```
-image: {{ .Values.deployment.image }}:{{.Values.deployment.tag }}
+image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag }}
 ```
 
+10. Upgrade the release 
+
+```
+helm upgrade test-app test-app --namespace=test --values ./test-app/values.yaml
+```
+
+### You should receive a response similar to the below
+
+Release "test-app" has been upgraded. Happy Helming!
+NAME: test-app
+LAST DEPLOYED: Tue Mar 15 14:01:21 2022
+NAMESPACE: test
+STATUS: deployed
+REVISION: 2
+TEST SUITE: None
+
+```
+helm list --all
+```
+
+11. Set to an older image from the command prompt
+```
+helm upgrade test-app test-app --namespace=test --set deployment.tag=1.8.1
+```
+
+12. To make our chart more generic, let's replace all refs to test in the name of the object with a Helm value expression and value . Additionally set a Helm value for the namespace. Eg for test-cm.yaml we can edit as below:
+
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.name }}-cm
+  namespace: {{ .Values.namespace }}
+data:
+  name: "test"
+  ```
+
+13.  Rename values.yaml file to dev.yaml and add the code below. Note :
+
+```
+name: dev
+namespace: dev
+```
+
+14. Now deploy a copy of the app into the Dev namespace with names that reflect it is being used for dev
+```
+helm upgrade test-app test-app --namespace=dev --values ./test-app/dev.yaml
+```
+
+15. Finally, create a copy of dev.yaml as uat.yaml and update the values accordingly
+```
+helm upgrade test-app test-app --namespace=uat --values ./test-app/uat.yaml
+```
+
+## Congratulations!! You now know how to deploy multiple instances of annginx application across different Kubernetes namespaces/environments. 
