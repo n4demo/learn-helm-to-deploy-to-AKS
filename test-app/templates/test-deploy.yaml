@@ -23,12 +23,12 @@ spec:
         name: nginx
         resources: {}
         volumeMounts:
-         - name: vol
-           mountPath: "/etc/cm"
+         - name: config-vol
+           mountPath: "/etc/config"
            readOnly: true
       volumes:
-       - name: vol
+       - name: config-vol
          configMap:
-         name: test-cm
+          name: test-cm
 
 status: {}

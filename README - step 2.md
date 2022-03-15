@@ -41,4 +41,12 @@ ls test-app
 helm template test-app test-app --namespace=test-app --create-namespace
 ```
 
+9. Now deploy the application: helm install [NAME] [CHART] [flags]
+
+```
+helm install test-app test-app
+```
+
+
 9. Now we should replace hardcoded values in the manifest files with variable names that match values in the values file.
+
