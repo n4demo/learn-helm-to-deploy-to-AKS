@@ -123,12 +123,16 @@ namespace: dev
 
 14. Now deploy a copy of the app into the Dev namespace with names that reflect it is being used for dev
 ```
-helm upgrade test-app test-app --namespace=dev --values ./test-app/dev.yaml
+helm install dev-app test-app --namespace=dev --values ./test-app/dev.yaml
 ```
 
-15. Finally, create a copy of dev.yaml as uat.yaml and update the values accordingly
+15. Finally, create a copy of dev.yaml as uat.yaml and update the values accordingly and deploy a UAT version
 ```
-helm upgrade test-app test-app --namespace=uat --values ./test-app/uat.yaml
+helm upgrade uat-app test-app --namespace=uat --values ./test-app/uat.yaml
 ```
 
-## Congratulations!! You now know how to deploy multiple instances of annginx application across different Kubernetes namespaces/environments. 
+```
+hekm list
+```
+
+## Congratulations!! You now know how to deploy multiple instances and versions of an nginx application across different Kubernetes namespaces/environments. 
