@@ -38,12 +38,14 @@ mkdir helm-training && cd helm-training
 4. Check that Helm is installed and working:
 ```
 helm version
+
+helm list
 ```
 
-5. Let's now create a Helm chart and view the files created: helm create NAME
+5. Let's now create a new Helm chart and view the files created: helm create NAME
 
 ```
-helm create example-app
+helm create example-app --namespace example-app
 ```
 
 ```
@@ -141,7 +143,3 @@ kubectl delete ns example-app
 ```
 
 Go to https://github.com/n4demo/learn-helm-to-deploy-to-AKS/blob/master/README%20-%20step%202.md
-
-
-
-
