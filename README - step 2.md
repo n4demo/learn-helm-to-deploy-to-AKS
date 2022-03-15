@@ -44,7 +44,7 @@ helm template test-app test-app --namespace=test-app --create-namespace
 9. Now deploy the application: helm install [NAME] [CHART] [flags]
 
 ```
-helm install test-app test-app
+helm install test-app test-app --namespace=test --create-namespace
 ```
 
 
