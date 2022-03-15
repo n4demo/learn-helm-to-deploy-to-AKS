@@ -102,14 +102,13 @@ helm list --all
 helm upgrade my-test-app test-app --namespace=test --set deployment.tag=1.8.1
 ```
 
-12. To make our chart more generic, let's replace all refs to test in the name of the object with a Helm value expression and value. Additionally set a Helm value for the namespace. Eg for test-cm.yaml we can edit as below:
+12. To make our chart more generic, let's replace all hardoded refs to object names with a Helm value expression and value. Eg for test-cm.yaml we can edit as below:
 
 ```
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Values.name }}-cm
-  namespace: {{ .Values.namespace }}
+  name: {{ .Values.name }}
 data:
   name: "test"
   ```
@@ -118,7 +117,6 @@ data:
 
 ```
 name: dev
-namespace: dev
 ```
 
 14. Now deploy a copy of the app into the Dev namespace with names that reflect that it is being used for dev

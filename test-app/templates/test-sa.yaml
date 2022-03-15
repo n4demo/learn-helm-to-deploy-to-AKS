@@ -3,4 +3,3 @@ kind: ServiceAccount
 metadata:
   creationTimestamp: null
   name: test-sa
-  namespace: test
