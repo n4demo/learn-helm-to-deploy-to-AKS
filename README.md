@@ -3,7 +3,7 @@
 # Audience
 Developers, Solution Architects  
 
-## Learn helm to deploy to AKS - Step 1 of 3
+## Beginners guide to Helm to deploy to AKS - Step 1 of 2
 
 ### The purpose of this training course is to understand how Helm can help deploy Kubernetes manifest files as a package.
 
