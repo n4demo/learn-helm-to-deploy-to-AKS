@@ -25,16 +25,20 @@ nigel@Azure:~/helm-training$
 
 ## If you have created in the wrong folder you can use: rm -r learn-helm-to-deploy-to-AKS -f
 
-6. From AZ CLI change directory into downloaded cloned repo, then list files.
+6. From AZ CLI change directory into the downloaded cloned repo, then list files.
 
 ```
-cd ~/helm-training/learn-helm-to-deploy-to-AKS 
+cd ~/helm-training/learn-helm-to-deploy-to-AKS
+
+ls test-app
 ```
 
-7. From the AZ CLI Editor, review the files in the directory: helm-training/learn-helm-to-deploy-to-AKS/templates
+7. From the AZ CLI Editor, review the files in the templates directory
 
-8. To see and test how Helm merges these manifest files within the templates folder with values from the (empty) values file - run: Helm template command and review the trace output.
+8. To see and test how Helm merges these manifest files within the templates folder with values from the (empty) values file - run: helm template [NAME] [CHART] [flags] and review the trace output. Note this will not deploy anything.
+
 ```
 helm template test-app test-app --namespace=test-app --create-namespace
 ```
+
 9. Now we should replace hardcoded values in the manifest files with variable names that match values in the values file.

@@ -23,7 +23,7 @@ https://helm.sh/docs/topics/charts
 
 ## Prerequisites
 
-1. Request access rights to your Kubernetes cluster (K8s) from your trainer
+1. Request access rights to your Kubernetes cluster (K8s) from your trainer and download your kube-config file.
 
 2. Run the AZ CLI
 
@@ -32,16 +32,28 @@ https://helm.sh/docs/topics/charts
 ```
 mkdir helm-training && cd helm-training
 ```
+
 4. Check that Helm is installed and working:
 ```
 helm version
 ```
 
-5. Let's now create a Helm chart and view the files created:
+5. Let's now create a Helm chart and view the files created: helm create NAME
 
 ```
 helm create example-app
 ```
+
+```
+example-app/
+├── .helmignore   # Contains patterns to ignore when packaging Helm charts.
+├── Chart.yaml    # Information about your chart
+├── values.yaml   # The default values for your templates
+├── charts/       # Charts that this chart depends on
+└── templates/    # The template files
+    └── tests/    # The test files
+```
+
 ```
 ls example-app
 ```
@@ -55,7 +67,8 @@ ls example-app
 helm template example-app example-app --namespace=example-app --create-namespace
 ```
 
-9. Now let's deploy this application to our Kubernetes cluster. 
+9. Now let's deploy this application to our Kubernetes cluster: helm install [NAME] [CHART] [flags]. 
+
 ```
 helm install example-app example-app --namespace=example-app --create-namespace
 ```
@@ -108,7 +121,7 @@ replicaset.apps/example-app-64db6ff57b   1         1         1       73s
 kubectl delete ns example-app
 ```
 
-Go to step 2
+Go to https://github.com/n4demo/learn-helm-to-deploy-to-AKS/blob/master/README%20-%20step%202.md
 
 
 
