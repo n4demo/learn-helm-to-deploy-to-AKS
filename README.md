@@ -109,7 +109,7 @@ NOTES:
 12. List the helm deployments
 
 ```
-helm list
+helm list --namespace=example-app
 ```
 
 13. View the objects using kubectl
@@ -139,6 +139,10 @@ replicaset.apps/example-app-64db6ff57b   1         1         1       73s
 
 ```
 helm uninstall my-example-app --namespace=example-app
+```
+
+```
+helm list --namespace=example-app
 ```
 
 ```
