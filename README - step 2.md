@@ -36,7 +36,7 @@ cd ~/helm-training/learn-helm-to-deploy-to-AKS
 ls test-app
 ```
 
-5. From the AZ CLI Editor, review the files in the templates directory
+5. From the AZ CLI Editor, review the files in the 'learn-helm-to-deploy-to-AKS/test-app/templates' directory.
 
 6. To see and test how Helm merges these manifest files within the templates folder with values from the (empty) values file - run: helm template [NAME] [CHART] [flags] and review the trace output. Note this will not deploy anything.
 
@@ -71,10 +71,10 @@ deployment:
  tag: "1.21.6"
 ```
 
-9. Open the test-deploy.yaml and replace the image with:
+9. Open the deploy.yaml. Scroll down to containers and replace the nginx image as below (hint if you make a mistake use CTL Z):
 
 ```
-image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag }}
+- image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag }}
 ```
 
 10. Upgrade the release 
