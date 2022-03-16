@@ -5,9 +5,9 @@ metadata:
 spec:
   hard:
     pods: "10"
-    services: "2"
-    services.loadbalancers: "2"
-    secrets: "2"
+    services: "4"
+    services.loadbalancers: "5"
+    secrets: "8"
     requests.cpu: "1"
     requests.memory: 1Gi
     limits.cpu: "2"
