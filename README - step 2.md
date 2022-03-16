@@ -113,8 +113,13 @@ data:
   name: "test"
   ```
 
-13.  Rename values.yaml file to dev-values.yaml and add the code below:
+13.  Rename values.yaml file to dev-values.yaml:
 
+```
+mv ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/values.yaml ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/dev-values.yaml
+```
+
+13b. Edit dev-values.yaml by adding the code below:
 ```
 name: dev
 ```
@@ -122,13 +127,26 @@ name: dev
 14. Now deploy a copy of the app into the Dev namespace with names that reflect that it is being used for dev
 
 ```
-helm install dev-app test-app --namespace=dev --values ./test-app/dev-values.yaml
+helm install dev-app test-app --namespace=dev --create-namespace --values ./test-app/dev-values.yaml
 ```
 
-15. Finally, create a copy of dev-values.yaml as uat-values.yaml and update the values accordingly and deploy a UAT version
+14b. Check that the objects have been created:
+```
+kubectl get all -n=dev
+```
+
+15. Finally, create a copy of dev-values.yaml as uat-values.yaml and update the name value accordingly and deploy a UAT version
 
 ```
-helm upgrade uat-app test-app --namespace=uat --values ./test-app/uat-values.yaml
+cp ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/dev-values.yaml ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/uat-values.yaml
+```
+
+```
+name: uat
+```
+
+```
+helm install uat-app test-app --namespace=uat --create-namespace  --values ./test-app/uat-values.yaml
 ```
 
 ```
