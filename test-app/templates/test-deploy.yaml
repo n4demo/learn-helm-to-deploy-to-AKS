@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
-    app: test-deploy
-  name: test-deploy
+    app: test
+  name: test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: test-deploy
+      app: test
   strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: test-deploy
+        app: test
     spec:
       containers:
       - image: nginx: 1.20.2
@@ -28,6 +26,4 @@ spec:
       volumes:
        - name: config-vol
          configMap:
-          name: test-cm
-
-status: {}
+          name: test
