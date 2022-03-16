@@ -13,7 +13,8 @@ Developers, Solution Architects
 ### Helm docs https://helm.sh/docs/topics/charts
 
 ### helpful commands:
-#### list files: *ls*
+#### change directory back to home: *cd ~*
+#### list all files: *ls -a*
 #### view file: *cat my-file.yaml*
 #### Show K8s objects: *kubectl get all --namespace=my-namespace*
 #### Remove a directory: *rm helm-training --force --recursive*
