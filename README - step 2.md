@@ -102,7 +102,7 @@ helm list --all --all-namespaces
 helm upgrade my-test-app test-app --namespace=test --set deployment.tag=1.8.1
 ```
 
-12. To make our chart more generic, let's replace all hardoded refs to object names with a Helm value expression and value. Eg for test-cm.yaml we can edit as below:
+12. To make our chart more generic, let's replace all hardoded refs to object names with a Helm value expression and value. E.g. for cm.yaml we can edit as below:
 
 ```
 apiVersion: v1
@@ -113,18 +113,20 @@ data:
   name: "test"
   ```
 
-13.  Rename values.yaml file to dev-values.yaml and add the code below. Note :
+13.  Rename values.yaml file to dev-values.yaml and add the code below:
 
 ```
 name: dev
 ```
 
 14. Now deploy a copy of the app into the Dev namespace with names that reflect that it is being used for dev
+
 ```
 helm install dev-app test-app --namespace=dev --values ./test-app/dev-values.yaml
 ```
 
 15. Finally, create a copy of dev-values.yaml as uat-values.yaml and update the values accordingly and deploy a UAT version
+
 ```
 helm upgrade uat-app test-app --namespace=uat --values ./test-app/uat-values.yaml
 ```
@@ -133,7 +135,7 @@ helm upgrade uat-app test-app --namespace=uat --values ./test-app/uat-values.yam
 helm list --all --all-namespaces
 ```
 
-## Congratulations!! You now know how to deploy different versions, with multiple instances across different Kubernetes namespaces of a simple nginx application. 
+## Congratulations!! You now know how to deploy different versions of an app, with multiple instances across different Kubernetes namespaces. 
 
 ## Finally, clear out you objects
 
@@ -145,15 +147,17 @@ helm uninstall dev-app --namespace=dev
 helm uninstall uat-app --namespace=uat
 ```
 
-```
-k delete ns my-namespace
+16. You can also clear out the Kubernetes objects by namespace.
 
+```
 k delete ns dev
 
 k delete ns uat
 ```
 
+17. finally remove your git repo
+
 ```
 cd ~
-rm -r ~/helm-training -f
+rm ~/helm-training -f -r
 ```
