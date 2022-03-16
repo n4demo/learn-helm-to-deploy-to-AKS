@@ -16,7 +16,7 @@ Developers, Solution Architects
 #### list files: *ls*
 #### view file: *cat my-file.yaml*
 #### Show K8s objects: *kubectl get all --namespace=my-namespace*
-#### Remove a directory: *rm learn-helm-to-deploy-to-AKS --force --recursive*
+#### Remove a directory: *rm helm-training --force --recursive*
 #### Run an editor: *vi*
 
 ## All commands can be executed by copying to the AZ CLI: >_
