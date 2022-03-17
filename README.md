@@ -45,7 +45,9 @@ helm version
 helm list
 ```
 
-5. Let's now create a new Helm chart and view the files created: helm create NAME
+## Start
+
+5. Let's now create a new Helm chart and view the files created: helm create [NAME]
 
 ```
 helm create example-app --namespace example-app
@@ -76,7 +78,7 @@ example-app/
 helm template my-example-app example-app --namespace=example-app --create-namespace
 ```
 
-9. Now let's deploy this application to our Kubernetes cluster: helm install [NAME] [CHART] [flags]. 
+9. Now let's deploy this application to our Kubernetes cluster in the example-app namespace: helm install [NAME] [CHART] [flags]. 
 
 ```
 clear
@@ -106,13 +108,13 @@ NOTES:
 11. Paste the return commands into the AZ CLI
 
 
-12. List the helm deployments
+12. List the helm deployments in the given namespace
 
 ```
 helm list --namespace=example-app
 ```
 
-13. View the objects using kubectl
+13. View the objects using kubectl in the given namespace
 
 ```
 kubectl get all --namespace=example-app
@@ -135,7 +137,7 @@ NAME                                     DESIRED   CURRENT   READY   AGE
 replicaset.apps/example-app-64db6ff57b   1         1         1       73s
 ```
 
-15. When ready, delete the objects from AKS
+15. When ready, delete the Helm Releases
 
 ```
 helm uninstall my-example-app --namespace=example-app
@@ -144,6 +146,8 @@ helm uninstall my-example-app --namespace=example-app
 ```
 helm list --namespace=example-app
 ```
+
+16. Now delete all Kubernetes objects hosted in the namespace
 
 ```
 kubectl delete ns example-app
