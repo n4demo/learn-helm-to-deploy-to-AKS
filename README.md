@@ -40,7 +40,7 @@ mkdir helm-training && cd helm-training
 
 4. Check that Helm is installed and working:
 ```
-helm version
+helm version 
 
 helm list
 ```
