@@ -156,7 +156,7 @@ kubectl delete ns example-app
 17. We may want helm to create our populated template but use gitops (ArgoCD) to deploy. This time generate a file and apply by using Kubectl
 
 ```
-helm template gitops example-app --namespace=gitops --create-namespace > gitops.yaml
+helm template gitops --namespace=gitops --create-namespace > gitops.yaml
 ```
 
 ```
