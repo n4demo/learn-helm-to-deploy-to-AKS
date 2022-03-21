@@ -75,7 +75,7 @@ example-app/
 8. To see and test how Helm merges the manifest files within the templates folder with values from the values file. Run: helm template [NAME] [CHART] [flags] and review the trace output.
 
 ```
-helm template my-example-app example-app --namespace=example-app --create-namespace
+helm template MYNAME example-app --namespace=MYNAME --create-namespace
 ```
 
 9. Now let's deploy this application to our Kubernetes cluster in the example-app namespace: helm install [NAME] [CHART] [flags]. 
@@ -85,16 +85,16 @@ clear
 ```
 
 ```
-helm install my-example-app example-app --namespace=example-app --create-namespace
+helm install MYNAME example-app --namespace=MYNAME --create-namespace
 ```
 
 10. You should see something like this. Assumes kubectl has access to a cluster
 
 ```
 nigel@Azure:~/helm-training$ helm install example-app example-app --namespace=example-app --create-namespace
-NAME: my-example-app
+NAME: ed
 LAST DEPLOYED: Mon Mar 14 16:22:55 2022
-NAMESPACE: example-app
+NAMESPACE: ed
 STATUS: deployed
 REVISION: 1
 NOTES:
@@ -111,13 +111,13 @@ NOTES:
 12. List the helm deployments in the given namespace
 
 ```
-helm list --namespace=example-app
+helm list --namespace=MYNAME
 ```
 
 13. View the objects using kubectl in the given namespace
 
 ```
-kubectl get all --namespace=example-app
+kubectl get all --namespace=MYNAME
 ```
 
 14. You should now see something like this:
@@ -140,39 +140,41 @@ replicaset.apps/example-app-64db6ff57b   1         1         1       73s
 15. When ready, delete the Helm Releases
 
 ```
-helm uninstall my-example-app --namespace=example-app
+helm uninstall MYNAME --namespace=MYNAME
 ```
 
 ```
-helm list --namespace=example-app
+helm list --namespace=MYNAME
 ```
 
 16. Now delete all Kubernetes objects hosted in the namespace
 
 ```
-kubectl delete ns example-app
+kubectl delete ns MYNAME
 ```
 
 17. We may want helm to create our populated template but use gitops (ArgoCD) to deploy. This time generate a file and apply by using Kubectl
 
 ```
-helm template gitops --namespace=gitops --create-namespace > gitops.yaml
+helm template MYNAME example-app  > gitops.yaml
 ```
 
 ```
 cat gitops.yaml
 ```
 
+18. Does the yaml file specify a target namespace?
+
 ```
-kubectl create ns gitops
+kubectl create ns MYNAME
 ```
 
 ```
-kubectl create -f gitops.yaml -n=gitops
+kubectl create -f gitops.yaml -n=MYNAME
 ```
 
 ```
-kubectl get all -n=gitops
+kubectl get all -n=MYNAME
 ```
 
 Go to https://github.com/n4demo/learn-helm-to-deploy-to-AKS/blob/master/README%20-%20step%202.md
