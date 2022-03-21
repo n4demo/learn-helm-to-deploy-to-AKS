@@ -160,6 +160,10 @@ helm template gitops example-app --namespace=gitops --create-namespace > gitops.
 ```
 
 ```
+cat gitops.yaml
+```
+
+```
 kubectl create -f gitops.yaml
 ```
 
