@@ -170,6 +170,16 @@ helm install MYNAME-uat-app test-app --namespace=MYNAME-uat --create-namespace  
 ```
 
 ```
+nigel@Azure:~/helm-training/learn-helm-to-deploy-to-AKS$ helm install nigel-uat-app test-app --namespace=nigel-uat --create-namespace  --values ./test-app/uat-values.yaml
+NAME: nigel-uat-app
+LAST DEPLOYED: Mon Mar 21 11:55:51 2022
+NAMESPACE: nigel-uat
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+```
+
+```
 helm list --all --all-namespaces
 ```
 
@@ -178,7 +188,7 @@ helm list --all --all-namespaces
 ## Finally, clear out your objects
 
 ```
-helm uninstall my-test-app --namespace=MYNAME
+helm uninstall MYNAME --namespace=MYNAME
 
 helm uninstall MYNAME-dev-app --namespace=MYNAME-dev
 
