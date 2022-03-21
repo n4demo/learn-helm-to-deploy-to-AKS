@@ -50,7 +50,7 @@ helm list
 5. Let's now create a new Helm chart and view the files created: helm create [NAME]
 
 ```
-helm create example-app --namespace example-app
+helm create MYNAME --namespace MYNAME
 ```
 
 ```
