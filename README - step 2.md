@@ -129,10 +129,15 @@ data:
 mv ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/values.yaml ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/dev-values.yaml
 ```
 
-13b. Edit dev-values.yaml by adding the code below:
+13b. Edit dev-values.yaml by as per the code below:
+
 ```
+deployment:
+ image: "node4demo"
+ tag: "liverpool"
 name: MYNAME-dev
 ```
+
 
 14. Now deploy a copy of the app into the Dev namespace with names that reflect that it is being used for dev. Test first using the template option, then installclear:
 
@@ -166,7 +171,10 @@ cp ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/dev-values.yaml ~/helm-t
 ```
 
 ```
-name: uat
+deployment:
+ image: "node4demo"
+ tag: "liverpool"
+name: MYNAME-uat
 ```
 
 ```
