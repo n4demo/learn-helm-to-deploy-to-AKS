@@ -101,10 +101,10 @@ helm list --all --all-namespaces
 
 11. Set to an older image from the command prompt
 ```
-helm upgrade my-test-app test-app --namespace=test --set deployment.tag=1.8.1
+helm upgrade MYNAME test-app --namespace=MYNAME --set deployment.tag=1.8.1
 ```
 
-12. To make our chart more generic, let's replace all hardoded refs to object names with a Helm value expression and value. E.g. for cm.yaml we can edit as below:
+12. To make our chart more generic, let's replace all hardcoded refs to object names with a Helm value expression and value. E.g. for cm.yaml we can edit as below:
 
 ```
 apiVersion: v1
@@ -123,18 +123,18 @@ mv ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/values.yaml ~/helm-train
 
 13b. Edit dev-values.yaml by adding the code below:
 ```
-name: dev
+name: MYNAME-dev
 ```
 
 14. Now deploy a copy of the app into the Dev namespace with names that reflect that it is being used for dev
 
 ```
-helm install dev-app test-app --namespace=dev --create-namespace --values ./test-app/dev-values.yaml
+helm install MYNAME-dev-app test-app --namespace=MYNAME-dev --create-namespace --values ./test-app/dev-values.yaml
 ```
 
 14b. Check that the objects have been created:
 ```
-kubectl get all -n=dev
+kubectl get all -n=MYNAME-dev
 ```
 
 15. Finally, create a copy of dev-values.yaml as uat-values.yaml and update the name value accordingly and deploy a UAT version
@@ -148,7 +148,7 @@ name: uat
 ```
 
 ```
-helm install uat-app test-app --namespace=uat --create-namespace  --values ./test-app/uat-values.yaml
+helm install MYNAME-uat-app test-app --namespace=MYNAME-uat --create-namespace  --values ./test-app/uat-values.yaml
 ```
 
 ```
@@ -160,19 +160,19 @@ helm list --all --all-namespaces
 ## Finally, clear out your objects
 
 ```
-helm uninstall my-test-app --namespace=test
+helm uninstall my-test-app --namespace=MYNAME
 
-helm uninstall dev-app --namespace=dev
+helm uninstall MYNAME-dev-app --namespace=MYNAME-dev
 
-helm uninstall uat-app --namespace=uat
+helm uninstall MYNAME-uat-app --namespace=MYNAME-uat
 ```
 
 16. You can also clear out the Kubernetes objects by namespace.
 
 ```
-k delete ns dev
+k delete ns MYNAME-dev
 
-k delete ns uat
+k delete ns MYNAME-uat
 ```
 
 17. finally remove your git repo
