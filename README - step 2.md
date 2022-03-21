@@ -187,6 +187,13 @@ TEST SUITE: None
 helm list --all --all-namespaces
 ```
 
+```
+nigel@Azure:~/helm-training/learn-helm-to-deploy-to-AKS$ helm list --all --all-namespaces
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
+nigel-dev-app   nigel-dev       1               2022-03-21 11:47:39.342259641 +0000 UTC deployed        test-app-0.1.1  1.10.0     
+nigel-uat-app   nigel-uat       1               2022-03-21 11:55:51.958281453 +0000 UTC deployed        test-app-0.1.1  1.10.0    
+```
+
 ## Congratulations!! You now know how to deploy different versions of an app, with multiple instances across different Kubernetes namespaces. 
 
 ## Finally, clear out your objects
