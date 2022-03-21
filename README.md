@@ -185,4 +185,8 @@ kubectl get all -n=MYNAME
 kubectl delete ns MYNAME
 ```
 
+```
+rm ~/helm-training/MYNAME --force --recursive
+```
+
 Go to https://github.com/n4demo/learn-helm-to-deploy-to-AKS/blob/master/README%20-%20step%202.md
