@@ -87,6 +87,7 @@ helm upgrade MYNAME test-app --namespace=MYNAME --values ./test-app/values.yaml
 
 ### You should receive a response similar to the below
 
+```
 nigel@Azure:~/helm-training/learn-helm-to-deploy-to-AKS$ helm upgrade nigel test-app --namespace=nigel --values ./test-app/values.yaml
 Release "nigel" has been upgraded. Happy Helming!
 NAME: nigel
@@ -95,6 +96,7 @@ NAMESPACE: nigel
 STATUS: deployed
 REVISION: 2
 TEST SUITE: None
+```
 
 ```
 helm list --all --all-namespaces
@@ -104,7 +106,9 @@ helm list --all --all-namespaces
 
 ```
 helm upgrade MYNAME test-app --namespace=MYNAME --set deployment.tag=1.8.1
+```
 
+```
 kubectl describe deploy -n=MYNAME | grep -i image
 ```
 
@@ -117,7 +121,7 @@ metadata:
   name: {{ .Values.name }}
 data:
   name: "test"
-  ```
+```
 
 13.  Rename values.yaml file to dev-values.yaml:
 
