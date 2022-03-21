@@ -52,7 +52,3 @@ helm install rancher rancher-latest/rancher --namespace cattle-system --set host
 ```
 kubectl -n cattle-system rollout status deploy/rancher
 ```
-
-
-
-
