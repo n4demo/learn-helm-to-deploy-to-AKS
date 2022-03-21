@@ -157,7 +157,7 @@ helm list --all --all-namespaces
 
 ## Congratulations!! You now know how to deploy different versions of an app, with multiple instances across different Kubernetes namespaces. 
 
-## Finally, clear out you objects
+## Finally, clear out your objects
 
 ```
 helm uninstall my-test-app --namespace=test
