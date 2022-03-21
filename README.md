@@ -164,6 +164,10 @@ cat gitops.yaml
 ```
 
 ```
+kubectl create ns gitops
+```
+
+```
 kubectl create -f gitops.yaml -n=gitops
 ```
 
