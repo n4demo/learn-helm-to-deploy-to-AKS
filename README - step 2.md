@@ -1,8 +1,9 @@
 - Author Nigel Wardle. Node4
 
 1. Confirm your AZ CLI current working directory is set to 'helm-training' 
+
 ```
-pwd
+cd ~/helm-training
 ```
 
 2. From the AZ CLI, from GitHub, clone the Helm training repository into your AZ CLI
@@ -41,13 +42,13 @@ ls test-app
 6. To see and test how Helm merges these manifest files within the templates folder with values from the (empty) values file - run: helm template [NAME] [CHART] [flags] and review the trace output. Note this will not deploy anything.
 
 ```
-helm template my-test-app test-app --namespace=test-app --create-namespace
+helm template MYNAME test-app --namespace=MYNAME --create-namespace
 ```
 
 7. Now deploy the application: helm install [NAME] [CHART] [flags]
 
 ```
-helm install my-test-app test-app --namespace=test --create-namespace
+helm install MYNAME test-app --namespace=MYNAME --create-namespace
 ```
 
 ```
