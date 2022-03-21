@@ -9,20 +9,20 @@ cd ~/helm-training
 2. From the AZ CLI, from GitHub, clone the Helm training repository into your AZ CLI
 
 ```
-git clone https://github.com/n4demo/learn-helm-to-deploy-to-AKS
+git clone https://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@github.com/n4demo/learn-helm-to-deploy-to-AKS.git
 ```
 
 3. You should see something like this:
 
 ```
-nigel@Azure:~/helm-training$ git clone https://github.com/n4demo/learn-helm-to-deploy-to-AKS
+nigel@Azure:~/helm-training$ git clone https://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@github.com/n4demo/learn-helm-to-deploy-to-AKS.git
 Cloning into 'learn-helm-to-deploy-to-AKS'...
-remote: Enumerating objects: 45, done.
-remote: Counting objects: 100% (45/45), done.
-remote: Compressing objects: 100% (40/40), done.
-remote: Total 45 (delta 6), reused 40 (delta 3), pack-reused 0
-Unpacking objects: 100% (45/45), done.
-nigel@Azure:~/helm-training$ 
+remote: Enumerating objects: 249, done.
+remote: Counting objects: 100% (249/249), done.
+remote: Compressing objects: 100% (186/186), done.
+remote: Total 249 (delta 125), reused 143 (delta 61), pack-reused 0
+Receiving objects: 100% (249/249), 547.96 KiB | 14.42 MiB/s, done.
+Resolving deltas: 100% (125/125), done.
 ```
 
 ### If you have created in the wrong folder you can use: rm learn-helm-to-deploy-to-AKS --force --recursive
@@ -52,9 +52,10 @@ helm install MYNAME test-app --namespace=MYNAME --create-namespace
 ```
 
 ```
-NAME: my-test-app
-LAST DEPLOYED: Tue Mar 15 12:29:03 2022
-NAMESPACE: test
+nigel@Azure:~/helm-training/learn-helm-to-deploy-to-AKS$ helm install nigel test-app --namespace=nigel --create-namespace
+NAME: nigel
+LAST DEPLOYED: Mon Mar 21 11:01:21 2022
+NAMESPACE: nigel
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
