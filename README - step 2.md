@@ -65,7 +65,7 @@ TEST SUITE: None
 helm list --all --all-namespaces
 ```
 
-8. Now we should replace hardcoded values in the manifest files with variable names that match values in the values file. Open the values.yaml file and add the code below:
+8. Now we should replace hardcoded values in the manifest files with variable names that match values in the values file. From the editor open the ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/values.yaml file and add the code below:
 
 ```
 deployment:
@@ -73,7 +73,7 @@ deployment:
  tag: "1.21.6"
 ```
 
-9. Open the deploy.yaml. Scroll down to containers and replace the nginx image as below (hint if you make a mistake use CTL Z):
+9. From the editor open:  ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/templates/deploy.yaml. Scroll down to containers and replace the nginx image as below (hint if you make a mistake use CTL Z):
 
 ```
 - image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag }}
@@ -82,15 +82,16 @@ deployment:
 10. Upgrade the release 
 
 ```
-helm upgrade my-test-app test-app --namespace=test --values ./test-app/values.yaml
+helm upgrade MYNAME test-app --namespace=MYNAME --values ./test-app/values.yaml
 ```
 
 ### You should receive a response similar to the below
 
-Release "my-test-app" has been upgraded. Happy Helming!
-NAME: test-app
-LAST DEPLOYED: Tue Mar 15 14:01:21 2022
-NAMESPACE: test
+nigel@Azure:~/helm-training/learn-helm-to-deploy-to-AKS$ helm upgrade nigel test-app --namespace=nigel --values ./test-app/values.yaml
+Release "nigel" has been upgraded. Happy Helming!
+NAME: nigel
+LAST DEPLOYED: Mon Mar 21 11:21:44 2022
+NAMESPACE: nigel
 STATUS: deployed
 REVISION: 2
 TEST SUITE: None
@@ -99,9 +100,12 @@ TEST SUITE: None
 helm list --all --all-namespaces
 ```
 
-11. Set to an older image from the command prompt
+11. Set to an older image from the command prompt and check it has been upgraded:
+
 ```
 helm upgrade MYNAME test-app --namespace=MYNAME --set deployment.tag=1.8.1
+
+kubectl describe deploy -n=MYNAME | grep -i image
 ```
 
 12. To make our chart more generic, let's replace all hardcoded refs to object names with a Helm value expression and value. E.g. for cm.yaml we can edit as below:
@@ -126,13 +130,27 @@ mv ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/values.yaml ~/helm-train
 name: MYNAME-dev
 ```
 
-14. Now deploy a copy of the app into the Dev namespace with names that reflect that it is being used for dev
+14. Now deploy a copy of the app into the Dev namespace with names that reflect that it is being used for dev. Test first using the template option, then installclear:
 
 ```
-helm install MYNAME-dev-app test-app --namespace=MYNAME-dev --create-namespace --values ./test-app/dev-values.yaml
+helm template MYNAME-dev-app test-app --namespace=MYNAME-dev --create-namespace --values ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/dev-values.yaml
 ```
 
-14b. Check that the objects have been created:
+```
+helm install MYNAME-dev-app test-app --namespace=MYNAME-dev --create-namespace --values ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/dev-values.yaml
+```
+
+```
+nigel@Azure:~/helm-training/learn-helm-to-deploy-to-AKS$ helm install nigel-dev-app test-app --namespace=nigel-dev --create-namespace --values ~/helm-training/learn-helm-to-deploy-to-AKS/test-app/dev-values.yaml
+NAME: nigel-dev-app
+LAST DEPLOYED: Mon Mar 21 11:47:39 2022
+NAMESPACE: nigel-dev
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+```
+
+14b. Check that the objects have been created If the above fails run: kubectl delete ns MYNAME-dev
 ```
 kubectl get all -n=MYNAME-dev
 ```
