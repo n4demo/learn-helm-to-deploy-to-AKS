@@ -164,7 +164,7 @@ cat gitops.yaml
 ```
 
 ```
-kubectl create -f gitops.yaml
+kubectl create -f gitops.yaml -n=gitops
 ```
 
 ```
