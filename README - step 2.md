@@ -6,10 +6,10 @@
 cd ~/helm-training
 ```
 
-2. From the AZ CLI, from GitHub, clone the Helm training repository into your AZ CLI
+2. From the AZ CLI, from GitHub, clone the Helm training repository into your AZ CLI. Ask your trainer for PAT.
 
 ```
-git clone https://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@github.com/n4demo/learn-helm-to-deploy-to-AKS.git
+git clone https://PAT@github.com/n4demo/learn-helm-to-deploy-to-AKS.git
 ```
 
 3. You should see something like this:
