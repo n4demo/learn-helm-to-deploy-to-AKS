@@ -52,3 +52,7 @@ helm install rancher rancher-latest/rancher --namespace cattle-system --set host
 ```
 kubectl -n cattle-system rollout status deploy/rancher
 ```
+
+```
+k expose deployment rancher --name=rancher-srv --type=LoadBalancer --port=8005 --target-port=443  -n=cattle-system
+```
