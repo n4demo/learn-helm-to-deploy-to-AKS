@@ -7,6 +7,10 @@
 ```
 
 ```
+helm search repo prometheus-community
+```
+
+```
   helm repo add stable https://charts.helm.sh/stable
 ```
 

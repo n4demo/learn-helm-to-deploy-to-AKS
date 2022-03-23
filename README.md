@@ -47,7 +47,7 @@ helm list
 
 ## Start
 
-5. Let's now create a new Helm chart called MYNAME and view the files created: helm create [NAME]
+5. Let's now start by creating our own new Helm chart called MYNAME and view the files created: *helm create [NAME]*
 
 ```
 helm create MYNAME --namespace MYNAME
@@ -76,13 +76,13 @@ test-connection.yaml
 
 7. What does nindent 4 mean?
 
-8. now perform a test to see how Helm merges all the manifest files within the templates folder with values from the (empty) values file. Create a new template call MYNAME using the chart MYNAME we created earlier. e.g helm template [NAME] [CHART] [flags] Review the trace output.
+8. now perform a test to see how Helm merges all the manifest files within the templates folder with values from the (empty) values file. Create a new template call MYNAME using the chart MYNAME we created earlier. e.g *helm template [NAME] [CHART] [flags]* Review the trace output.
 
 ```
 helm template MYNAME MYNAME --namespace=MYNAME --create-namespace
 ```
 
-9. Now let's deploy this application to our Kubernetes cluster in the example-app namespace: helm install [NAME] [CHART] [flags]. 
+9. Now let's deploy this application to our Kubernetes cluster in the MYNAME namespace: *helm install [NAME] [CHART] [flags]* 
 
 ```
 clear
@@ -95,7 +95,7 @@ helm install MYNAME MYNAME --namespace=MYNAME --create-namespace
 10. You should see something like this. Assumes kubectl has access to a cluster
 
 ```
-nigel@Azure:~/helm-training$ helm install example-app example-app --namespace=example-app --create-namespace
+nigel@Azure:~/helm-training$ helm install nigel nigel --namespace=nigel --create-namespace
 NAME: nigel
 LAST DEPLOYED: Mon Mar 21 10:35:00 2022
 NAMESPACE: nigel
