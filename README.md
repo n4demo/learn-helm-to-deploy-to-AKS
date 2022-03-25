@@ -20,6 +20,11 @@ Developers, Solution Architects
 #### Remove a directory: *rm helm-training --force --recursive*
 #### Run an editor: *vi*
 
+## The purpose of Helm is to help us deploy applications into different Kubernetes environments as a package rather than through individual components.
+
+
+ ![AKS highlighted on the menu bar.](media/k8s.png "AKS")
+
 ## All commands can be executed by copying to the AZ CLI: >_
 
  ![The cloud shell icon is highlighted on the menu bar.](media/b4-image35.png "Cloud Shell")
