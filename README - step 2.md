@@ -123,6 +123,12 @@ data:
   name: "test"
 ```
 
+12.b Edit the deployment file. At the end of the file update using:
+```
+configMap:
+ name: {{ .Values.name }}
+```
+
 13.  Rename values.yaml file to dev-values.yaml:
 
 ```
