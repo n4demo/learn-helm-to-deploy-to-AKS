@@ -208,9 +208,11 @@ nigel-uat-app   nigel-uat       1               2022-03-21 11:55:51.958281453 +0
 
 ```
 helm uninstall MYNAME --namespace=MYNAME
-
+```
+```
 helm uninstall MYNAME-dev-app --namespace=MYNAME-dev
-
+```
+```
 helm uninstall MYNAME-uat-app --namespace=MYNAME-uat
 ```
 
@@ -218,7 +220,8 @@ helm uninstall MYNAME-uat-app --namespace=MYNAME-uat
 
 ```
 k delete ns MYNAME-dev
-
+```
+```
 k delete ns MYNAME-uat
 ```
 
